@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchRecipesSuccess } from 'reducers/recipes';
 
 const useRecipes = () => {
+  const recipes = useSelector((state) => state.recipes.list);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,6 +30,7 @@ const useRecipes = () => {
 
   return {
     loading,
+    recipes,
   };
 };
 

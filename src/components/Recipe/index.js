@@ -64,10 +64,10 @@ const Recipe = ({ contentId, title, imageList }) => {
     <Wrapper>
       <ImgWrapper>
         <ImgOverlay />
-        <Img src={imageList.landscape32small2x.url} />
+        <Img data-testid="image" src={imageList.landscape32small2x.url} />
       </ImgWrapper>
       <Description>
-        <Title>{title}</Title>
+        <Title data-testid="title">{title}</Title>
       </Description>
     </Wrapper>
   );

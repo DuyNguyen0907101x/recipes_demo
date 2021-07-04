@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import Spinner from 'components/Spinner';
@@ -21,15 +20,14 @@ const Heading = styled.h1`
 `;
 
 const Recipes = () => {
-  const recipes = useSelector((state) => state.recipes.list);
-  const { loading } = useRecipes();
+  const { loading, recipes } = useRecipes();
 
   return loading ? (
-    <Spinner />
+    <Spinner data-testid="loading" />
   ) : (
     <Page>
-      <Heading>Recipes</Heading>
-      <Wrapper>
+      <Heading data-testid="title">Recipes</Heading>
+      <Wrapper data-testid="recipe-list">
         {recipes.map((recipe) => {
           return (
             <Recipe
